@@ -76,10 +76,10 @@ class App extends Component {
     const getContacts = this.getContacts();
     return (
       <div>
-        <h1 >Phonebook</h1>
+        <h1 className='title'>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
 
-        <h2 >Contacts</h2>
+        <h2  className='title'>Contacts</h2>
         <Filter value={filter} onChange={this.filterChange} />
         <ContactList
           contacts={getContacts}
