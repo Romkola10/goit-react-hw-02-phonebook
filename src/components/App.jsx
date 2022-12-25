@@ -14,29 +14,17 @@ class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    // name: '',
-    // number: ''
   }
-
-  resetForm = () => {
-    this.setState(() => ({
-      name: '',
-      number: '',
-    }));
-  };
 
   addContact = ({ name, number }) => {
     const isNameAdded = name.toUpperCase();
-    let isAdded = false;
-
-    this.state.contacts.forEach(el => {
-      if (el.name.toUpperCase() === isNameAdded) {
-        alert(`${name} is already in contacts`);
-        isAdded = true;
-      }
+    
+    const isAdded = this.state.contacts.find(el => {
+      return (el.name.toUpperCase() === isNameAdded);
     });
 
     if (isAdded) {
+      alert(`${name} is already in contacts`);
       return;
     }
 
